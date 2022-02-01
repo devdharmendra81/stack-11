@@ -123,7 +123,8 @@ export function FeeRow(props: FeeRowProps): JSX.Element {
       {feeMeta.error && (
         <ErrorLabel data-testid={SendFormSelectors.InputCustomFeeFieldErrorLabel}>
           <Text lineHeight="18px" textStyle="caption">
-            {feeMeta.error}
+            <span data-testid={SendFormSelectors.InputCustomFeeFieldError}> {feeMeta.error} </span>
+
           </Text>
         </ErrorLabel>
       )}
