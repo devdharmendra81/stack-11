@@ -60,17 +60,21 @@ describe('Contract Call test', () => {
     await sendForm.selectLowFeeOption();
     await sendForm.clickConfirmTransaction();
     await sendForm.page.isHidden(sendForm.getSelector('$standardFeeSelect'));
-    await sendForm.page.close();
-    const allPages = await WalletPage.getAllPages(browser);
-    expect(allPages.length).toBe(3);
+    await walletPage.page.waitForTimeout(1000);
+    await mainPage.waitForStatusMessage();
+    const statusMessageElement = await mainPage.page.$$(sendForm.getSelector('$statusMessage'));
+    const statusMessage = await statusMessageElement[0].innerText();
+    expect(statusMessage).toBe('Successfully broadcasted "Contract Call"');
   });
 
   it('when fees is standard', async () => {
     await sendForm.clickConfirmTransaction();
     await sendForm.page.isHidden(sendForm.getSelector('$standardFeeSelect'));
-    await sendForm.page.close();
-    const allPages = await WalletPage.getAllPages(browser);
-    expect(allPages.length).toBe(3);
+    await walletPage.page.waitForTimeout(1000);
+    await mainPage.waitForStatusMessage();
+    const statusMessageElement = await mainPage.page.$$(sendForm.getSelector('$statusMessage'));
+    const statusMessage = await statusMessageElement[0].innerText();
+    expect(statusMessage).toBe('Successfully broadcasted "Contract Call"');
   });
 
   it('when fees is high', async () => {
@@ -78,9 +82,11 @@ describe('Contract Call test', () => {
     await sendForm.selectHighFeeOption();
     await sendForm.clickConfirmTransaction();
     await sendForm.page.isHidden(sendForm.getSelector('$standardFeeSelect'));
-    await sendForm.page.close();
-    const allPages = await WalletPage.getAllPages(browser);
-    expect(allPages.length).toBe(3);
+    await walletPage.page.waitForTimeout(1000);
+    await mainPage.waitForStatusMessage();
+    const statusMessageElement = await mainPage.page.$$(sendForm.getSelector('$statusMessage'));
+    const statusMessage = await statusMessageElement[0].innerText();
+    expect(statusMessage).toBe('Successfully broadcasted "Contract Call"');
   });
 
   it('when fees is custom', async () => {
@@ -92,9 +98,11 @@ describe('Contract Call test', () => {
 
     await sendForm.clickConfirmTransaction();
     await sendForm.page.isHidden(sendForm.getSelector('$standardFeeSelect'));
-    await sendForm.page.close();
-    const allPages = await WalletPage.getAllPages(browser);
-    expect(allPages.length).toBe(3);
+    await walletPage.page.waitForTimeout(1000);
+    await mainPage.waitForStatusMessage();
+    const statusMessageElement = await mainPage.page.$$(sendForm.getSelector('$statusMessage'));
+    const statusMessage = await statusMessageElement[0].innerText();
+    expect(statusMessage).toBe('Successfully broadcasted "Contract Call"')
   });
 
   it('validates that custom fee has more than 6 decimal places', async () => {
