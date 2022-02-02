@@ -7,6 +7,6 @@ export enum OnboardingSelectors {
   SetPasswordBtn = 'set-password-btn',
   SignInLink = 'sign-in-link',
   SignInBtn = 'sign-in-btn',
-  SignUpBtn = 'sign-up',
+  SignUpBtn = 'sign-up-btn',
   HiroWalletLogoRouteToHome = 'hiro-wallet-logo-route-to-home',
 }

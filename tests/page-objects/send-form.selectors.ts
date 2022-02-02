@@ -10,7 +10,6 @@ export enum SendFormSelectors {
   MemoField = 'memo-field',
   MemoFieldErrorLabel = 'memo-field-error-label',
 
-  FeeEstimateItem = 'Standard-Fees',
   FeeEstimateSelect = 'fee-estimate-select',
   LowFeesOption = 'Low-Fees',
   HighFeesOption = 'High-Fees',

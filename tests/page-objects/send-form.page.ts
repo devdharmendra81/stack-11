@@ -12,7 +12,6 @@ const selectors = {
   $memoFieldError: createTestSelector(SendFormSelectors.MemoFieldErrorLabel),
   $stxAddressField: createTestSelector(SendFormSelectors.InputRecipientField),
   $stxAddressFieldError: createTestSelector(SendFormSelectors.InputRecipientFieldErrorLabel),
-  $feeEstimateItem: createTestSelector(SendFormSelectors.FeeEstimateItem),
   $feeEstimateSelect: createTestSelector(SendFormSelectors.FeeEstimateSelect),
   $customFeeField: createTestSelector(SendFormSelectors.InputCustomFeeField),
   $previewBtn: createTestSelector(SendFormSelectors.BtnPreviewSendTx),
@@ -81,12 +80,12 @@ export class SendPage {
   }
 
   async waitForFeeEstimateItem() {
-    await this.page.waitForSelector(this.selectors.$feeEstimateItem);
+    await this.page.waitForSelector(this.selectors.$standardFeeSelect);
   }
 
   async clickFeeEstimateItem() {
     await this.waitForFeeEstimateItem();
-    await this.page.click(this.selectors.$feeEstimateItem);
+    await this.page.click(this.selectors.$standardFeeSelect);
   }
 
   async waitForFeeEstimateSelect() {
@@ -147,10 +146,6 @@ export class SendPage {
 
   async selectHighFeeOption() {
     await this.page.click(this.selectors.$highFeeSelect);
-  }
-
-  async selectStandardFeeOption() {
-    await this.page.click(this.selectors.$standardFeeSelect);
   }
 
   async selectCustomFeeOption() {

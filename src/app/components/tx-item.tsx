@@ -41,7 +41,7 @@ const Status = ({ transaction, ...rest }: { transaction: Tx } & BoxProps) => {
   return isFailed || isPending ? (
     <Box {...rest}>
       {isPending && (
-        <Caption variant="c2" color={color('feedback-alert')} data-testid={SendFormSelectors.PendingStatus}>
+        <Caption color={color('feedback-alert')} data-testid={SendFormSelectors.PendingStatus} variant="c2">
           Pending
         </Caption>
       )}
